@@ -1,12 +1,110 @@
+body {
+    background-color: rgb(104, 153, 196);
+}
 
-/* 
+ul {
+    list-style-type: none;
+}
 
-    You can write your own styles here...
-    
-    
-    ...Or you can use the import command to include 
-    other sylesheets into your bunde as well, e.j:
-    
-    import 'relative/path/to/stylesheet.scss';
+.general-wraper {
 
-*/
+    width: 50%;
+    /* border: dashed 1px rgb(250, 248, 248); */
+    padding: 1px;
+}
+
+.inputs-class>input,
+.inputs-class>textarea {
+    width: 100%;
+    border-radius: 8px;
+    padding: 5px;
+}
+
+.add-button {
+
+    outline: 0;
+    grid-gap: 8px;
+    align-items: center;
+    background-color: #6cffc991;
+    color: #000;
+    border: 1px solid #000;
+    border-radius: 4px;
+    display: inline-flex;
+    flex-shrink: 0;
+    font-size: 16px;
+    justify-content: center;
+    line-height: 1.5;
+    overflow: hidden;
+    padding: 6px 8px;
+    text-decoration: none;
+    text-overflow: ellipsis;
+    transition: all .14s ease-out;
+    white-space: nowrap;
+    width: 20%;
+
+}
+
+.add-button:hover {
+    box-shadow: 4px 4px 0 #000;
+    transform: translate(-4px, -4px);
+    cursor: pointer;
+}
+
+.add-button:focus-visible {
+    outline-offset: 1px;
+}
+
+.delete-button{
+    outline: 0;
+    grid-gap: 8px;
+    align-items: center;
+    background-color: #6cffc991;
+    color: #000;
+    border: 1px solid #000;
+    border-radius: 4px;
+    display: inline-flex;
+    flex-shrink: 0;
+    font-size: 16px;
+    justify-content: center;
+    line-height: 1.5;
+    overflow: hidden;
+    padding: 6px 8px;
+    text-decoration: none;
+    text-overflow: ellipsis;
+    transition: all .14s ease-out;
+    white-space: nowrap;
+    width: 5%;
+
+}
+
+
+.general-list {
+    margin-top: 50px;
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 8px;
+    background-color: rgb(252, 237, 214);
+}
+
+.input-title {
+    border: none;
+}
+
+
+.inputs-class {
+    word-wrap: break-word;
+    overflow: hidden;
+    
+}
+
+.input-description {
+    text-align:justify;
+}
+
+
+li {
+
+    border-bottom: solid 1px rgba(185, 219, 229, 0.665);
+    border-spacing: 50px;
+    margin-bottom: 15px;
+}
