@@ -53,7 +53,7 @@ const TaskManager = () => {
 
     return <>
         <div className="general-wraper flex-column container">
-            <header className="mb-5 d-flex justify-content-center"><h1>MiTask</h1><h5>REACT</h5></header>
+            <header className="mb-5 d-flex justify-content-center"><h1>MiTask</h1><h5 className="sub-title">REACT</h5></header>
             <div className="inputs-class">
                 <input className="input-title mb-2" type="text" placeholder="Task Title" value={titleInputValue} onChange={onChangeTitle} onKeyDown={handleKeyDown} />
                 <textarea className="input-description" placeholder="Describe your task (optional)" value={descriptionInputValue} onChange={onChangeDescription} onKeyDown={handleKeyDown}></textarea>

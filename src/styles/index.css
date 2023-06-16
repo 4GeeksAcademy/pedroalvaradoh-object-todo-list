@@ -1,9 +1,31 @@
-body {
-    background-color: #498295;
+:root {
+    --body_background: #498295;
+    --wraper_background: #2f5a69;
+    --wraper_shadow: #9c582e;
+    --text_input_background: #ECE8DD;
+    --button_main_background: #62aec8;
+    --titles_buttons_color: #000;
+    --delete_button_hover_color: #c86262;
+    --list_divider_color: rgba(174, 212, 223, 0.807);
 }
 
-ul {
-    list-style-type: none;
+[data-theme="cake"] {
+    --body_background: #ffcc99;
+    --wraper_background: #99ccff;
+    --wraper_shadow: #ff9999;
+    --text_input_background: #ffccff;
+    --button_main_background: #ff9999;
+    --titles_buttons_color: #663399;
+    --delete_button_hover_color: #ffcccc;
+    --list_divider_color: rgb(223, 174, 215);
+}
+
+* {
+    transition: all 0.4s ease-in-out;
+}
+
+body {
+    background-color: var(--body_background)
 }
 
 .general-wraper {
@@ -12,21 +34,30 @@ ul {
     /* border: dashed 1px rgb(250, 248, 248); */
     padding: 1px;
     margin: auto;
-    background-color: #2f5a69;
+    background-color: var( --wraper_background);
     padding: 15px;
     border-radius: 8px;
-    box-shadow: 4px 4px 0 #9c582e;
-    border: 1px solid #9c582e;
+    box-shadow: 4px 4px 0 var(--wraper_shadow);
+    border: 1px solid var(--wraper_shadow);
 }
 
 h1 {
     font-weight:900;
     font-family: 'Shadows Into Light', cursive;
     font-size: 70px;
+    color: var(--titles_buttons_color);
 }
 
+.sub-title {
+    font-size: 20px;
+    font-family: 'Delicious Handrawn', cursive;
+    font-weight:500;
+    color: var(--titles_buttons_color);
+  }
+
+
 .inputs-class {
-    background-color: #ECE8DD;
+    background-color: var(--text_input_background);
     padding: 10px;
     border-radius: 8px;
     margin-bottom: 10px;
@@ -39,90 +70,12 @@ h1 {
     padding: 5px;
 }
 
-.add-button {
-
-    outline: 0;
-    align-items: center;
-    background-color: #62aec8;
-    color: #000;
-    border: 1px solid #000;
-    border-radius: 4px;
-    flex-shrink: 0;
-    font-size: 16px;
-    justify-content: center;
-    line-height: 1.5;
-    overflow: hidden;
-    padding: 6px 8px;
-    text-decoration: none;
-    text-overflow: ellipsis;
-    transition: all .14s ease-out;
-    white-space: nowrap;
-    width: 20%;
-
-}
-
-.add-button:hover {
-    box-shadow: 4px 4px 0 #000;
-    transform: translate(-4px, -4px);
-    cursor: pointer;
-}
-
-.add-button:focus-visible {
-    outline-offset: 1px;
-}
-
-.delete-button{
-    outline: 0;
-    grid-gap: 8px;
-    align-items: center;
-    background-color: #62aec8;
-    color: #000;
-    border: 1px solid #000;
-    border-radius: 4px;
-    display: inline-flex;
-    flex-shrink: 0;
-    font-size: 12px;
-    justify-content: center;
-    line-height: 1.5;
-    overflow: hidden;
-    padding: 3px 6px;
-    text-decoration: none;
-    text-overflow: ellipsis;
-    transition: all .14s ease-out;
-    white-space: nowrap;
-    width: 5%;
-    display: flex;
-    box-shadow: 2px 2px 0 #000;
-    text-align: center;
-    opacity: 0;
-
-
-}
-
-.delete-button:hover {
-    background-color: #c86262;
-    font-size: 16px;
-    box-shadow: 4px 4px 0 #000;
-    transform: translate(-2px, -2px);
-    
-
-}
-
-
-.general-list {
-    margin-top: 50px;
-    padding: 10px;
-    border: 1px solid black;
-    border-radius: 8px;
-    background-color: #ECE8DD;
-}
-
 .input-title {
     border: solid 1px rgb(114, 114, 114); 
     outline: none;
 }
 .input-title:focus {
-    border: solid 2px #62aec8;
+    border: solid 2px var(--button_main_background);
     
 }
 
@@ -140,14 +93,98 @@ h1 {
 
 }
 .input-description:focus {
-    border: solid 2px #62aec8;
+    border: solid 2px var(--button_main_background);
     outline: none;
 }
+
+.add-button {
+
+    outline: 0;
+    align-items: center;
+    background-color: var(--button_main_background);
+    color: var(--titles_buttons_color);
+    border: 1px solid var(--titles_buttons_color);;
+    border-radius: 4px;
+    flex-shrink: 0;
+    font-size: 16px;
+    justify-content: center;
+    line-height: 1.5;
+    overflow: hidden;
+    padding: 6px 8px;
+    text-decoration: none;
+    text-overflow: ellipsis;
+    transition: all .14s ease-out;
+    white-space: nowrap;
+    width: 20%;
+
+}
+
+.add-button:hover {
+    box-shadow: 4px 4px 0 var(--titles_buttons_color);;
+    transform: translate(-4px, -4px);
+    cursor: pointer;
+}
+
+.add-button:focus-visible {
+    outline-offset: 1px;
+}
+
+.delete-button{
+    outline: 0;
+    grid-gap: 8px;
+    align-items: center;
+    background-color: var(--button_main_background);
+    color: var(--titles_buttons_color);;
+    border: 1px solid var(--titles_buttons_color);;
+    border-radius: 4px;
+    display: inline-flex;
+    flex-shrink: 0;
+    font-size: 12px;
+    justify-content: center;
+    line-height: 1.5;
+    overflow: hidden;
+    padding: 3px 6px;
+    text-decoration: none;
+    text-overflow: ellipsis;
+    transition: all .14s ease-out;
+    white-space: nowrap;
+    width: 5%;
+    display: flex;
+    box-shadow: 2px 2px 0 var(--titles_buttons_color);;
+    text-align: center;
+    opacity: 0;
+
+
+}
+
+.delete-button:hover {
+    background-color: var( --delete_button_hover_color);
+    font-size: 16px;
+    box-shadow: 4px 4px 0 var(--titles_buttons_color);;
+    transform: translate(-2px, -2px);
+    
+
+}
+
+
+.general-list {
+    margin-top: 50px;
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 8px;
+    background-color: var(--text_input_background);;
+}
+
+ul {
+    list-style-type: none;
+}
+
+
 
 
 li {
 
-    border-bottom: solid 1px rgba(174, 212, 223, 0.807);
+    border-bottom: solid 1px var(--list_divider_color);
     border-spacing: 50px;
     margin-bottom: 15px;
     
@@ -172,6 +209,7 @@ li:hover .delete-button {
     font-size: 25px;
     font-family: 'Handlee', cursive;
     font-weight:500;
+    color: #000;
    
   }
 
@@ -181,12 +219,63 @@ li:hover .delete-button {
     font-weight:bolder;
   }
 
-  h5 {
-    font-size: 20px;
-    font-family: 'Delicious Handrawn', cursive;
-    font-weight:500;
-    
+
+/* AQUI VA EL TOGGLE */
+
+.item {
+    margin-bottom: 2em;
+
   }
+
+  .theme-text {
+    margin-top: -15px;
+  }
+
+  .toggle-pill input[type="checkbox"] {
+    display: none;
+  }
+  .toggle-pill input[type="checkbox"] + label {
+    display: block;
+    position: relative;
+    width: 3em;
+    height: 1.6em;
+    margin-bottom: 20px;
+    border-radius: 1em;
+    background: #f3f3f3;
+    box-shadow: inset 0px 0px 3px 1px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    -webkit-transition: background 0.1s ease-in-out;
+    transition: background 0.1s ease-in-out;
+  }
+  .toggle-pill input[type="checkbox"] + label:before {
+    content: "";
+    display: block;
+    width: 1.2em;
+    height: 1.2em;
+    border-radius: 1em;
+    background: var( --button_main_background);
+    box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.2);
+    position: absolute;
+    left: 0.2em;
+    top: 0.2em;
+    -webkit-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+  }
+  .toggle-pill input[type="checkbox"]:checked + label {
+    background: #fff;
+  }
+  .toggle-pill input[type="checkbox"]:checked + label:before {
+    box-shadow: -2px 0px 5px rgba(0, 0, 0, 0.2);
+    left: 1.6em;
+  }
+
+  .label {
+    margin-top: 20px;
+  }
+
+
+
+
 @import url('https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Delicious+Handrawn&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Handlee&display=swap');
