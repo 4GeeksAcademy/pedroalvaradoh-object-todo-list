@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import ReactMarkdown from 'react-markdown';
+
+
 
 
 
@@ -51,8 +52,8 @@ const TaskManager = () => {
 
 
     return <>
-        <div className="general-wraper flex-column container ">
-            <header className="mb-5"><h1>MiTask</h1></header>
+        <div className="general-wraper flex-column container">
+            <header className="mb-5 d-flex justify-content-center"><h1>MiTask</h1><h5>REACT</h5></header>
             <div className="inputs-class">
                 <input className="input-title mb-2" type="text" placeholder="Task Title" value={titleInputValue} onChange={onChangeTitle} onKeyDown={handleKeyDown} />
                 <textarea className="input-description" placeholder="Describe your task (optional)" value={descriptionInputValue} onChange={onChangeDescription} onKeyDown={handleKeyDown}></textarea>
@@ -62,11 +63,11 @@ const TaskManager = () => {
                 <div className="list-body">
                     <ul className="general-list">
                         {taskList.map((task, index) => (
-                            <li key={index}> <div className="d-flex justify-content-between align-items-center p-2"><h5 className="text-center">- {task.title}</h5> <button className="delete-button" type="button" onClick={() => handleDelete(index)}>x</button></div> <div dangerouslySetInnerHTML={{ __html: task.description }}></div> </li>
+                            <li key={index}> <div className="d-flex justify-content-between align-items-center p-2"><h5 className="text-center taskList-class">- {task.title}</h5> <button className="delete-button" type="button" onClick={() => handleDelete(index)}>x</button></div> <div className="description-font" dangerouslySetInnerHTML={{ __html: task.description }}></div> </li>
                         ))}
                         <div className="task-counter"> {taskList.length === 0 ? "No Pending Tasks" : `${taskList.length} Pending Tasks`}</div>
                     </ul>
-                    
+
                 </div>
             }
         </div>
