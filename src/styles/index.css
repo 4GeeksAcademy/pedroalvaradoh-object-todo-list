@@ -1,5 +1,5 @@
 body {
-    background-color: rgb(104, 153, 196);
+    background-color: #498295;
 }
 
 ul {
@@ -11,6 +11,25 @@ ul {
     width: 50%;
     /* border: dashed 1px rgb(250, 248, 248); */
     padding: 1px;
+    margin: auto;
+    background-color: #2f5a69;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 4px 4px 0 #9c582e;
+    border: 1px solid #9c582e;
+}
+
+h1 {
+    font-weight:900;
+    font-family: 'Shadows Into Light', cursive;
+    font-size: 70px;
+}
+
+.inputs-class {
+    background-color: #ECE8DD;
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 10px;
 }
 
 .inputs-class>input,
@@ -23,13 +42,11 @@ ul {
 .add-button {
 
     outline: 0;
-    grid-gap: 8px;
     align-items: center;
-    background-color: #6cffc991;
+    background-color: #62aec8;
     color: #000;
     border: 1px solid #000;
     border-radius: 4px;
-    display: inline-flex;
     flex-shrink: 0;
     font-size: 16px;
     justify-content: center;
@@ -58,22 +75,36 @@ ul {
     outline: 0;
     grid-gap: 8px;
     align-items: center;
-    background-color: #6cffc991;
+    background-color: #62aec8;
     color: #000;
     border: 1px solid #000;
     border-radius: 4px;
     display: inline-flex;
     flex-shrink: 0;
-    font-size: 16px;
+    font-size: 12px;
     justify-content: center;
     line-height: 1.5;
     overflow: hidden;
-    padding: 6px 8px;
+    padding: 3px 6px;
     text-decoration: none;
     text-overflow: ellipsis;
     transition: all .14s ease-out;
     white-space: nowrap;
     width: 5%;
+    display: flex;
+    box-shadow: 2px 2px 0 #000;
+    text-align: center;
+    opacity: 0;
+
+
+}
+
+.delete-button:hover {
+    background-color: #c86262;
+    font-size: 16px;
+    box-shadow: 4px 4px 0 #000;
+    transform: translate(-2px, -2px);
+    
 
 }
 
@@ -83,11 +114,16 @@ ul {
     padding: 10px;
     border: 1px solid black;
     border-radius: 8px;
-    background-color: rgb(252, 237, 214);
+    background-color: #ECE8DD;
 }
 
 .input-title {
-    border: none;
+    border: solid 1px rgb(114, 114, 114); 
+    outline: none;
+}
+.input-title:focus {
+    border: solid 2px #62aec8;
+    
 }
 
 
@@ -99,12 +135,36 @@ ul {
 
 .input-description {
     text-align:justify;
+    margin-bottom: 10px;
+    white-space: pre-wrap;
+
+}
+.input-description:focus {
+    border: solid 2px #62aec8;
+    outline: none;
 }
 
 
 li {
 
-    border-bottom: solid 1px rgba(185, 219, 229, 0.665);
+    border-bottom: solid 1px rgba(174, 212, 223, 0.807);
     border-spacing: 50px;
     margin-bottom: 15px;
+    
+    
 }
+
+li:hover .delete-button {
+    opacity: 100;
+}
+
+.task-counter {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    margin-top: -15px;
+    font-weight:900;
+    font-family: 'Shadows Into Light', cursive;
+    font-size: 20px;
+  }
+
+@import url('https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap');
