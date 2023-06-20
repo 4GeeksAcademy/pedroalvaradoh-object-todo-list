@@ -1,7 +1,4 @@
-import React, { useState } from "react";
-
-
-
+import React, { useEffect, useState } from "react";
 
 
 // Componente de To-do List
@@ -9,17 +6,66 @@ const TaskManager = () => {
 
     const [titleInputValue, setTitleInputValue] = useState("")
     const [descriptionInputValue, setDescriptionInputValue] = useState("")
-    const [taskList, setTaskList] = useState([])
+    const [taskList, setTaskList] = useState([{
+        label: "Task Sample",
+        description: "Description Sample",
+        done: false,
 
+    }])
+
+    // Función async para actualizar la lista cuando taskList se actualiza.
+    useEffect(() => {
+        const updateList = async () => {
+            try {
+                const response = await fetch('https://assets.breatheco.de/apis/fake/todos/user/pedroalvaradoh', {
+                    method: "PUT",
+                    body: JSON.stringify(taskList),
+                    headers: {
+                        'content-type': 'application/json'
+                    }
+                });
+                const data = await response.json();
+                console.log(data);
+            }
+            catch (error) {
+                console.log(error);
+            }
+        }
+        if (taskList) updateList();
+    }, [taskList]);
+
+
+    // Función async para actualizar la lista con la base de datos y traer los elementos.
+    const fetchList = async () => {
+        try {
+            const response = await fetch("https://assets.breatheco.de/apis/fake/todos/user/pedroalvaradoh");
+            const data = await response.json();
+            setTaskList(data);
+        } catch (error) {
+            console.log(error);
+
+        }
+    };
+
+    useEffect(() => {
+
+        fetchList()
+
+
+    }, []);
+
+    //  Función para crear nueva tarea
     const newTask = () => {
         if (!titleInputValue) return;
 
         const newTaskItem = {
-            title: titleInputValue,
+            label: titleInputValue,
+            done: false,
             description: descriptionInputValue.replace(/\n/g, "<br>"),
         };
 
         setTaskList((prev) => [...prev, newTaskItem]);
+        console.log(taskList);
         setTitleInputValue("");
         setDescriptionInputValue("");
     };
@@ -63,7 +109,7 @@ const TaskManager = () => {
                 <div className="list-body">
                     <ul className="general-list">
                         {taskList.map((task, index) => (
-                            <li key={index}> <div className="d-flex justify-content-between align-items-center p-2"><h5 className="text-center taskList-class">- {task.title}</h5> <button className="delete-button" type="button" onClick={() => handleDelete(index)}>x</button></div> <div className="description-font" dangerouslySetInnerHTML={{ __html: task.description }}></div> </li>
+                            <li key={index}> <div className="d-flex justify-content-between align-items-center p-2"><h5 className="text-center taskList-class">- {task.label}</h5> <button className="delete-button" type="button" onClick={() => handleDelete(index)}>x</button></div> <div className="description-font text-start" dangerouslySetInnerHTML={{ __html: task.description }}></div> </li>
                         ))}
                         <div className="task-counter"> {taskList.length === 0 ? "No Pending Tasks" : `${taskList.length} Pending Tasks`}</div>
                     </ul>
